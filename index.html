@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo de energia</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="script/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <label for="potencia">Potência:</label><br>
+            <input type="number" id="potencia" min="0"><br>
+            <label for="tempo">Tempo de uso (minutos):</label><br>
+            <input type="number" id="tempo" min="0"><br>
+            <label for="dias">Quantidade de dias de uso:</label><br>
+            <input type="number" min="0" max="31"><br>
+            <button id="calcula" onclick="calcular">Calcular consumo</button><br>
+            <label for="consumoTotal">mds me beja</label><br>
+            <input type="number" readonly name="consumoTotal" id="resultado"><br>
+            <label for="valorTotal">Valor total:</label><br>
+            <input type="number" readonly name="valorTotal" id="resultado">
+        </form>
+    </div>
+</body>
+</html>
