@@ -8,21 +8,15 @@
     margin-top: 35px;
 }
 
-fieldset {
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 0 auto;
-    width: 65%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-family: Verdana;
+form {
+   padding-top: 30px;
 }
 
 label{
     font-family: Verdana;
 }
 
-input[type="number"]  {
+input {
     font-size: 23px;
     width:68%;      
     height: 25px;
@@ -44,6 +38,10 @@ button {
     margin-bottom: 20px;
 }
 
-#resultado{
+.resultado{
     background-color: rgba(211, 211, 211, 0.521);
+}
+
+img{
+    margin-top: 100px;
 }

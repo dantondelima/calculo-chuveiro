@@ -6,8 +6,15 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="script/script.js"></script>
     <script>
-        var potencia = document.getElementById("potencia");
-        var tempo = document.getElementById("tempo");
+        function calculaConsumo(potencia, tempo){
+            var potencia = document.getElementById("potencia").value;
+            var tempo = document.getElementById("tempo").value;
+            alert(tempo);
+            var consumo = potencia * tempo;
+            var valor = potencia * tempo * 0.3;
+            document.getElementById("consumoTotal").value = consumo + " KWh";
+            document.getElementById("valorTotal").value = "R$ " + (valor).toLocaleString('pt-BR');
+        }
     </script>
 </head>
 <body>
@@ -17,11 +24,11 @@
             <input type="number" id="potencia" min="0"><br>
             <label for="tempo">Tempo de uso (minutos):</label><br>
             <input type="number" id="tempo" min="0"><br>
-            <button id="calcula" onclick="calcular">Calcular consumo</button><br>
+            <button type="button" id="calcula" onclick="calculaConsumo()">Calcular consumo</button><br>
             <label for="consumoTotal">Consumo total:</label><br>
-            <input type="number" readonly name="consumoTotal" id="resultado"><br>
+            <input type="text" readonly class="resultado" id="consumoTotal"><br>
             <label for="valorTotal">Valor total:</label><br>
-            <input type="number" readonly name="valorTotal" id="resultado">
+            <input type="text" readonly class="resultado" id="valorTotal">
         </form>
     </div>
 </body>

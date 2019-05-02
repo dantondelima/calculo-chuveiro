@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title> Lâmpada </title>
+		<!-- Carregando arquivo CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script>
+			var quebrada = false;
+			function mudarLampada(tipo){
+				if(!quebrada){
+					document.getElementById("luz").src="imagens/" + tipo + ".jpg";
+					if(tipo == 'lampadaquebrada'){
+						quebrada=true;
+					}
+				}
+			}		
+		</script>
+	</head>
+
+<body>
+	<div class="container">
+		<img src="imagens/lampadaapagada.jpg" id="luz" onmousemove="mudarLampada('lampadaacesa')" onmouseout="mudarLampada('lampadaapagada')" onclick="mudarLampada('lampadaquebrada')" /> <br>
+		<button type="button" value="Atualizar" onClick="history.go(0)">Atualizar</button> 
+	</div>
+</body>
+</html>
