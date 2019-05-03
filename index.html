@@ -6,30 +6,55 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="script/script.js"></script>
     <script>
-        function calculaConsumo(potencia, tempo){
+        function somenteNumeros(e) {
+        var tecla = e.charCode ? e.charCode : e.keyCode;
+        if (tecla != 8 && tecla != 9 && tecla != 46) {
+            if (tecla < 48 || tecla > 57) {
+                return false;
+            }
+        }
+    }
+
+        function calculaConsumo(){
             var potencia = document.getElementById("potencia").value;
-            var tempo = document.getElementById("tempo").value;
-            alert(tempo);
-            var consumo = potencia * tempo;
-            var valor = potencia * tempo * 0.3;
-            document.getElementById("consumoTotal").value = consumo + " KWh";
-            document.getElementById("valorTotal").value = "R$ " + (valor).toLocaleString('pt-BR');
+            var tempo = document.getElementById("tempo").value/60;
+            var qtdBanho = document.getElementById("qtdBanho").value;
+            var qtdDias = document.getElementById("qtdDias").value;
+            if(potencia != "" && tempo != "" && qtdBanho != "" && qtdDias != "" && qtdDias < 31){
+                var consumo = (potencia * tempo * qtdBanho * qtdDias) / 1000;
+                var valor = consumo * 0.3;
+                document.getElementById("consumoTotal").value = consumo + " KWh";
+                document.getElementById("valorTotal").value = "R$ " + (valor).toLocaleString('pt-BR');
+            }
+            
         }
     </script>
+    
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form onsubmit="return false;">
             <label for="potencia">Potência:</label><br>
-            <input type="number" id="potencia" min="0"><br>
+            <input type="number" step="any" id="potencia" min="0" required onkeypress="return somenteNumeros(event)"><br>
+
             <label for="tempo">Tempo de uso (minutos):</label><br>
-            <input type="number" id="tempo" min="0"><br>
-            <button type="button" id="calcula" onclick="calculaConsumo()">Calcular consumo</button><br>
+            <input type="number" step="any" id="tempo" min="0" required onkeypress="return somenteNumeros(event)"><br>
+
+            <label for="qtdBanho">Banhos ao dia:</label><br>
+            <input type="number" step="any" id="qtdBanho" min="0" required onkeypress="return somenteNumeros(event)"><br>
+            
+            <label for="qtdDias">Quantidade de dias:</label><br>
+            <input type="number" step="any" id="qtdDias" min="0" required max="31" onkeypress="return somenteNumeros(event)"><br>
+
+            <input type="submit" onclick="calculaConsumo()" id="calcula" value="Calcular consumo"><br>
+
             <label for="consumoTotal">Consumo total:</label><br>
             <input type="text" readonly class="resultado" id="consumoTotal"><br>
+
             <label for="valorTotal">Valor total:</label><br>
             <input type="text" readonly class="resultado" id="valorTotal">
         </form>
+        <a href="index2.html"><button>Lâmpada</button></a>
     </div>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Calculo Chuveiro</title>
+    <script>
+        function calculoConsumo() {
+            var potencia_chuveiro = document.getElementById("potencia_chuveiro").value / 1000;
+            var qtd_banhos = document.getElementById("qtd_banhos").value;
+            var tempo = document.getElementById("tempo").value / 60;
+            var valor_tarifa = 0.3;
+            var consumo_mes = Math.round(potencia_chuveiro * qtd_banhos * tempo * 30 * 10) / 10;
+            var gasto_mes = consumo_mes * valor_tarifa;
+            document.getElementById("resultado").innerHTML = "Você consumiu:" + consumo_mes +
+                "Kw/h Valor a ser pago: R$" + gasto_mes;
+        }
+    </script>
+
+</head>
+
+<body>
+    <p align="center">Indique a potência do seu chuveiro:</p>
+    <p align="center"><input type="text" id="potencia_chuveiro" /><br></p>
+    <p align="center">Quanto tempo leva seu banho?: </p>
+    <p align="center"><input type="text" id="tempo" /> <br></p>
+    <p align="center">Quantos banhos toma por dia? </p>
+    <p align="center"><input type="text" id="qtd_banhos" /> <br></p>
+    <p align="center"><button onclick="calculoConsumo()"> A</button> <br></p>
+    <p align="center" id="resultado">RESULTADO</p>
+
+</body>
+
+</html>
